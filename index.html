@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <title>MCI app</title>
+  
+  <link rel="stylesheet" href="css/jquery.mobile-1.4.2.min.css">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/jquery.mobile.structure-1.4.2.min.css"> 
+  
+  
+  <!-- Extra Codiqa features -->
+  <link rel="stylesheet" href="css/codiqa.ext.css">
+  
+  <!-- <link rel="stylesheet" href="https://codiqa.com/view/dbce325c/css"> -->
+  
+  <!-- jQuery and jQuery Mobile -->
+  <script src="js/jquery-2.1.1.min.js"></script>
+  <script src="js/jquery.mobile-1.4.2.min.js"></script>
+
+  <!-- Extra Codiqa features -->
+  <script src="js/codiqa.ext.js"></script>
+   
+  
+</head>
+<body>
+  <div data-role="page" data-control-title="Auth" id="page1">
+      <div data-role="content">
+          <div style="" data-controltype="image">
+              <img style="width: 100%; height: px" src="img/logo_long.jpg">
+          </div>
+          <h2>
+              Welcome
+          </h2>
+          <h5>
+              Please, sign in below
+          </h5>
+          <div data-role="fieldcontain" data-controltype="textinput">
+              <label for="textinput3">
+                  User
+              </label>
+              <input name="" id="textinput3" placeholder="" value="" type="text">
+          </div>
+          <div data-role="fieldcontain" data-controltype="textinput">
+              <label for="textinput4">
+                  Password
+              </label>
+              <input name="" id="textinput4" placeholder="" value="" type="password">
+          </div>
+          <a data-role="button" href="#page3" data-icon="check" data-iconpos="right">
+              Sign in
+          </a>
+      </div>
+      <div data-theme="a" data-role="footer" data-position="fixed">
+          <div style="" data-controltype="image">
+              <img style="width: 100%; height: 50px" src="img/logo_footer.jpg">
+          </div>
+      </div>
+  </div>
+  <div data-role="page" data-control-title="Home" id="page3">
+      <div data-role="content">
+          <div style="" data-controltype="image">
+              <img style="width: 100%; height: %" src="img/logo_short.jpg">
+          </div>
+          <h2>
+              Incidents
+          </h2>
+          <ul data-role="listview" data-divider-theme="b" data-inset="true">
+              <li data-role="list-divider" role="heading">
+                  Incident list
+              </li>
+              <li data-theme="c">
+                  <a href="#page4" data-transition="slide">
+                      Incident 1
+                  </a>
+              </li>
+              <li data-theme="c">
+                  <a href="#page1" data-transition="slide">
+                      Incident 2
+                  </a>
+              </li>
+              <li data-theme="c">
+                  <a href="#page1" data-transition="slide">
+                      Incident 3
+                  </a>
+              </li>
+          </ul>
+      </div>
+      <div data-role="tabbar" data-iconpos="right" data-theme="a">
+          <ul>
+              <li>
+                  <a href="#" data-transition="slide" data-theme="" data-icon="back">
+                      Back
+                  </a>
+              </li>
+              <li>
+                  <a href="#page3" data-transition="slide" data-theme="" data-icon="home">
+                      Home
+                  </a>
+              </li>
+              <li>
+                  <a href="#page1" data-transition="slide" data-theme="" data-icon="alert">
+                      Logout
+                  </a>
+              </li>
+          </ul>
+      </div>
+  </div>
+  <div data-role="page" data-control-title="Victim locator" id="page4">
+      <div data-role="content">
+          <div style="" data-controltype="image">
+              <img style="width: 100%; height: %" src="img/logo_short.jpg">
+          </div>
+          <h2>
+              Victim locator
+          </h2>
+          <h5>
+              Use the field below to locate a victim
+          </h5>
+          <div data-role="fieldcontain" data-controltype="searchinput">
+              <input name="" id="searchinput1" placeholder="" value="Tag id" type="search">
+          </div>
+          <div data-role="navbar" data-iconpos="top">
+              <ul>
+                  <li>
+                      <a href="#page4" data-transition="slide" data-theme="" data-icon="bars">
+                          Barcode Scanner
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#page5" data-transition="slide" data-theme="" data-icon="arrow-r">
+                          Go
+                      </a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+      <div data-role="tabbar" data-iconpos="right" data-theme="a">
+          <ul>
+              <li>
+                  <a href="#" data-transition="slide" data-theme="" data-icon="back">
+                      Back
+                  </a>
+              </li>
+              <li>
+                  <a href="#page3" data-transition="slide" data-theme="" data-icon="home">
+                      Home
+                  </a>
+              </li>
+              <li>
+                  <a href="#page1" data-transition="slide" data-theme="" data-icon="alert">
+                      Logout
+                  </a>
+              </li>
+          </ul>
+      </div>
+  </div>
+  <div data-role="page" data-control-title="Victim detail" id="page5">
+      <div data-role="content">
+          <div style="" data-controltype="image">
+              <img style="width: 100%; height: %" src="img/logo_short.jpg">
+          </div>
+          <div class="ui-grid-a">
+              <div class="ui-block-a">
+                  <h2>
+                      Victim details
+                  </h2>
+                  <h4>
+                      Identification (1)
+                  </h4>
+              </div>
+              <div class="ui-block-b">
+                  <div id="checkboxes2" data-role="fieldcontain" data-controltype="checkboxes">
+                      <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+                          <input id="checkbox5" name="check-triage" type="checkbox">
+                          <label for="checkbox5">
+                              Triage
+                          </label>
+                          <input id="checkbox6" name="check-treatment" type="checkbox">
+                          <label for="checkbox6">
+                              Treatment
+                          </label>
+                          <input id="checkbox7" name="check-transport" type="checkbox">
+                          <label for="checkbox7">
+                              Transport
+                          </label>
+                      </fieldset>
+                  </div>
+              </div>
+          </div>
+          <hr style="height:3px; background-color:#ccc; border:0; margin-top:12px; margin-bottom:12px;">
+          <div class="ui-grid-a">
+              <div class="ui-block-a">
+                  <div data-role="fieldcontain" data-controltype="textinput">
+                      <label for="textinput6">
+                          Age
+                      </label>
+                      <input name="" id="textinput6" placeholder="" value="" type="text">
+                  </div>
+                  <div data-role="fieldcontain" data-controltype="selectmenu">
+                      <label for="selectmenu1">
+                          Gender
+                      </label>
+                      <select id="selectmenu1" data-native-menu="false" name="" data-mini="true">
+                          <option value="male">
+                              Male
+                          </option>
+                          <option value="famale">
+                              Female
+                          </option>
+                          <option value="other">
+                              Other
+                          </option>
+                      </select>
+                  </div>
+                  <div data-role="fieldcontain" data-controltype="textinput">
+                      <label for="textinput15">
+                          Height
+                      </label>
+                      <input name="" id="textinput15" placeholder="" value="cm" type="text">
+                  </div>
+                  <div data-role="fieldcontain" data-controltype="textinput">
+                      <label for="textinput14">
+                          Weight
+                      </label>
+                      <input name="" id="textinput14" placeholder="" value="kg" type="text">
+                  </div>
+              </div>
+              <div class="ui-block-b">
+                  <div style="width: 288px; height: 200px; position: relative; background-color: #fbfbfb; border: 1px solid #b8b8b8;"
+                  data-controltype="image">
+                      <img src="images/" alt="image" style="position: absolute; top: 50%; left: 50%; margin-left: -16px; margin-top: -18px">
+                  </div>
+              </div>
+              <div class="ui-block-a">
+              </div>
+              <div class="ui-block-b">
+                  <div data-role="navbar" data-iconpos="top">
+                      <ul>
+                          <li>
+                              <a href="#page5" data-transition="slide" data-theme="" data-icon="arrow-l">
+                                  Prev
+                              </a>
+                          </li>
+                          <li>
+                              <a href="#page5" data-transition="slide" data-theme="" data-icon="plus">
+                                  Add
+                              </a>
+                          </li>
+                          <li>
+                              <a href="#page5" data-transition="slide" data-theme="" data-icon="arrow-r">
+                                  Next
+                              </a>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+          <div data-role="collapsible-set">
+              <div data-role="collapsible" data-collapsed="false">
+                  <h3>
+                      Additional info
+                  </h3>
+                  <div data-role="fieldcontain" data-controltype="textinput">
+                      <label for="textinput16">
+                          Name
+                      </label>
+                      <input name="" id="textinput16" placeholder="" value="" type="text">
+                  </div>
+                  <div data-role="fieldcontain" data-controltype="textinput">
+                      <label for="textinput17">
+                          Phone Number
+                      </label>
+                      <input name="" id="textinput17" placeholder="" value="" type="text">
+                  </div>
+                  <div data-role="fieldcontain" data-controltype="textinput">
+                      <label for="textinput18">
+                          Religion Pref.
+                      </label>
+                      <input name="" id="textinput18" placeholder="" value="" type="search">
+                  </div>
+                  <div data-role="fieldcontain" data-controltype="textinput">
+                      <label for="textinput19">
+                          Allergy
+                      </label>
+                      <input name="" id="textinput19" placeholder="" value="" type="search">
+                  </div>
+              </div>
+          </div>
+          <input type="submit" data-icon="delete" data-iconpos="right" value="Cancel">
+          <input type="submit" data-icon="arrow-u" data-iconpos="right" value="Save">
+      </div>
+      <div data-role="tabbar" data-iconpos="right" data-theme="a">
+          <ul>
+              <li>
+                  <a href="#" data-transition="slide" data-theme="" data-icon="back">
+                      Back
+                  </a>
+              </li>
+              <li>
+                  <a href="#page3" data-transition="slide" data-theme="" data-icon="home">
+                      Home
+                  </a>
+              </li>
+              <li>
+                  <a href="#page1" data-transition="slide" data-theme="" data-icon="alert">
+                      Logout
+                  </a>
+              </li>
+          </ul>
+      </div>
+  </div>
+</body>
+</html>
