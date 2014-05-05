@@ -7,27 +7,40 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <title>MCI app</title>
   
-  <link rel="stylesheet" href="css/jquery.mobile-1.4.2.min.css">
+  <link rel="stylesheet" href="css/jquery.mobile-1.4.2.min.css"> 
+  <!-- <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css"> -->
   <link rel="stylesheet" href="css/theme.css">
+  
   <link rel="stylesheet" href="css/jquery.mobile.structure-1.4.2.min.css"> 
   
   
   <!-- Extra Codiqa features -->
   <link rel="stylesheet" href="css/codiqa.ext.css">
+  <style type="text/css">.popupHeader{ margin: 10px; }</style>
   
   <!-- <link rel="stylesheet" href="https://codiqa.com/view/dbce325c/css"> -->
   
   <!-- jQuery and jQuery Mobile -->
-  <script src="js/jquery-2.1.1.min.js"></script>
-  <script src="js/jquery.mobile-1.4.2.min.js"></script>
+  <script src="js/jquery-2.1.1.min.js"></script> 
+  <script src="js/jquery.mobile-1.4.2.min.js"></script> 
+  <!-- <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script> -->
+  <!-- <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script> -->
 
   <!-- Extra Codiqa features -->
   <script src="js/codiqa.ext.js"></script>
+  
+  <script src="js/utils.js"></script>
+  
+  <script src="js/page_login.js"></script>
+  <script src="js/page_home.js"></script>
+  <script src="js/page_victim_locator.js"></script>
+  <script src="js/page_victim_detail.js"></script>
+  
    
   
 </head>
 <body>
-  <div data-role="page" data-control-title="Auth" id="page1">
+  <div data-role="page" data-control-title="Auth" id="auth">
       <div data-role="content">
           <div style="" data-controltype="image">
               <img style="width: 100%; height: px" src="img/logo_long.jpg">
@@ -42,15 +55,15 @@
               <label for="textinput3">
                   User
               </label>
-              <input name="" id="textinput3" placeholder="" value="" type="text">
+              <input name="" id="auth_txt_user" placeholder="" value="" type="text">
           </div>
           <div data-role="fieldcontain" data-controltype="textinput">
               <label for="textinput4">
                   Password
               </label>
-              <input name="" id="textinput4" placeholder="" value="" type="password">
+              <input name="" id="auth_txt_password" placeholder="" value="" type="password">
           </div>
-          <a data-role="button" href="#page3" data-icon="check" data-iconpos="right">
+          <a id="auth_btn_signin" data-role="button"  data-icon="check" data-iconpos="right">
               Sign in
           </a>
       </div>
@@ -60,7 +73,7 @@
           </div>
       </div>
   </div>
-  <div data-role="page" data-control-title="Home" id="page3">
+  <div data-role="page" data-control-title="Home" id="home">
       <div data-role="content">
           <div style="" data-controltype="image">
               <img style="width: 100%; height: %" src="img/logo_short.jpg">
@@ -68,25 +81,8 @@
           <h2>
               Incidents
           </h2>
-          <ul data-role="listview" data-divider-theme="b" data-inset="true">
-              <li data-role="list-divider" role="heading">
-                  Incident list
-              </li>
-              <li data-theme="c">
-                  <a href="#page4" data-transition="slide">
-                      Incident 1
-                  </a>
-              </li>
-              <li data-theme="c">
-                  <a href="#page1" data-transition="slide">
-                      Incident 2
-                  </a>
-              </li>
-              <li data-theme="c">
-                  <a href="#page1" data-transition="slide">
-                      Incident 3
-                  </a>
-              </li>
+          <ul data-role="listview" data-divider-theme="b" data-inset="true" id="home_lv_incidents">
+              
           </ul>
       </div>
       <div data-role="tabbar" data-iconpos="right" data-theme="a">
@@ -97,41 +93,43 @@
                   </a>
               </li>
               <li>
-                  <a href="#page3" data-transition="slide" data-theme="" data-icon="home">
+                  <a href="#home" data-transition="slide" data-theme="" data-icon="home">
                       Home
                   </a>
               </li>
               <li>
-                  <a href="#page1" data-transition="slide" data-theme="" data-icon="alert">
+                  <a href="#auth" data-transition="slide" data-theme="" data-icon="alert">
                       Logout
                   </a>
               </li>
           </ul>
       </div>
   </div>
-  <div data-role="page" data-control-title="Victim locator" id="page4">
+  <div data-role="page" data-control-title="Victim locator" id="victim_locator">
       <div data-role="content">
           <div style="" data-controltype="image">
               <img style="width: 100%; height: %" src="img/logo_short.jpg">
           </div>
-          <h2>
-              Victim locator
-          </h2>
+          <h2>Victim locator</h2>
           <h5>
-              Use the field below to locate a victim
+              Use the field below to locate a victim at <span id='vl_title' class='color:red'></span> incident.
           </h5>
+          
           <div data-role="fieldcontain" data-controltype="searchinput">
-              <input name="" id="searchinput1" placeholder="" value="Tag id" type="search">
+          	<label for="textinput3">
+                  Tag Id
+              </label>
+              <input name="" id="vl_searchinput" placeholder="" value="Tag id" type="search">
           </div>
           <div data-role="navbar" data-iconpos="top">
               <ul>
                   <li>
-                      <a href="#page4" data-transition="slide" data-theme="" data-icon="bars">
+                      <a href="#victim_locator" data-transition="slide" data-theme="" data-icon="bars">
                           Barcode Scanner
                       </a>
                   </li>
                   <li>
-                      <a href="#page5" data-transition="slide" data-theme="" data-icon="arrow-r">
+                      <a id="vl_btn_go" data-transition="slide" data-theme="" data-icon="arrow-r">
                           Go
                       </a>
                   </li>
@@ -146,19 +144,19 @@
                   </a>
               </li>
               <li>
-                  <a href="#page3" data-transition="slide" data-theme="" data-icon="home">
+                  <a href="#home" data-transition="slide" data-theme="" data-icon="home">
                       Home
                   </a>
               </li>
               <li>
-                  <a href="#page1" data-transition="slide" data-theme="" data-icon="alert">
+                  <a href="#auth" data-transition="slide" data-theme="" data-icon="alert">
                       Logout
                   </a>
               </li>
           </ul>
       </div>
   </div>
-  <div data-role="page" data-control-title="Victim detail" id="page5">
+  <div data-role="page" data-control-title="Victim detail" id="victim_detail">
       <div data-role="content">
           <div style="" data-controltype="image">
               <img style="width: 100%; height: %" src="img/logo_short.jpg">
@@ -173,18 +171,18 @@
                   </h4>
               </div>
               <div class="ui-block-b">
-                  <div id="checkboxes2" data-role="fieldcontain" data-controltype="checkboxes">
+                  <div id="vd_div_3t" data-role="fieldcontain" data-controltype="checkboxes">
                       <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
-                          <input id="checkbox5" name="check-triage" type="checkbox">
-                          <label for="checkbox5">
+                          <input id="vd_cb_triage" name="check-triage" type="checkbox">
+                          <label for="vd_cb_triage">
                               Triage
                           </label>
-                          <input id="checkbox6" name="check-treatment" type="checkbox">
-                          <label for="checkbox6">
+                          <input id="vd_cb_treatment" name="check-treatment" type="checkbox">
+                          <label for="vd_cb_treatment">
                               Treatment
                           </label>
-                          <input id="checkbox7" name="check-transport" type="checkbox">
-                          <label for="checkbox7">
+                          <input id="vd_cb_transport" name="check-transport" type="checkbox">
+                          <label for="vd_cb_transport">
                               Transport
                           </label>
                       </fieldset>
@@ -195,16 +193,16 @@
           <div class="ui-grid-a">
               <div class="ui-block-a">
                   <div data-role="fieldcontain" data-controltype="textinput">
-                      <label for="textinput6">
+                      <label for="vd_txt_age">
                           Age
                       </label>
-                      <input name="" id="textinput6" placeholder="" value="" type="text">
+                      <input name="" id="vd_txt_age" placeholder="" value="" type="text">
                   </div>
                   <div data-role="fieldcontain" data-controltype="selectmenu">
-                      <label for="selectmenu1">
+                      <label for="vd_menu_gender">
                           Gender
                       </label>
-                      <select id="selectmenu1" data-native-menu="false" name="" data-mini="true">
+                      <select id="vd_menu_gender" data-native-menu="false" name="" data-mini="true">
                           <option value="male">
                               Male
                           </option>
@@ -217,16 +215,16 @@
                       </select>
                   </div>
                   <div data-role="fieldcontain" data-controltype="textinput">
-                      <label for="textinput15">
+                      <label for="vd_txt_height">
                           Height
                       </label>
-                      <input name="" id="textinput15" placeholder="" value="cm" type="text">
+                      <input name="" id="vd_txt_height" placeholder="" value="cm" type="text">
                   </div>
                   <div data-role="fieldcontain" data-controltype="textinput">
-                      <label for="textinput14">
+                      <label for="vd_txt_weight">
                           Weight
                       </label>
-                      <input name="" id="textinput14" placeholder="" value="kg" type="text">
+                      <input name="" id="vd_txt_weight" placeholder="" value="kg" type="text">
                   </div>
               </div>
               <div class="ui-block-b">
@@ -241,17 +239,17 @@
                   <div data-role="navbar" data-iconpos="top">
                       <ul>
                           <li>
-                              <a href="#page5" data-transition="slide" data-theme="" data-icon="arrow-l">
+                              <a href="#victim_detail" data-transition="slide" data-theme="" data-icon="arrow-l">
                                   Prev
                               </a>
                           </li>
                           <li>
-                              <a href="#page5" data-transition="slide" data-theme="" data-icon="plus">
+                              <a href="#victim_detail" data-transition="slide" data-theme="" data-icon="plus">
                                   Add
                               </a>
                           </li>
                           <li>
-                              <a href="#page5" data-transition="slide" data-theme="" data-icon="arrow-r">
+                              <a href="#victim_detail" data-transition="slide" data-theme="" data-icon="arrow-r">
                                   Next
                               </a>
                           </li>
@@ -265,28 +263,28 @@
                       Additional info
                   </h3>
                   <div data-role="fieldcontain" data-controltype="textinput">
-                      <label for="textinput16">
+                      <label for="vd_txt_name">
                           Name
                       </label>
-                      <input name="" id="textinput16" placeholder="" value="" type="text">
+                      <input name="" id="vd_txt_name" placeholder="" value="" type="text">
                   </div>
                   <div data-role="fieldcontain" data-controltype="textinput">
-                      <label for="textinput17">
+                      <label for="vd_txt_phone">
                           Phone Number
                       </label>
-                      <input name="" id="textinput17" placeholder="" value="" type="text">
+                      <input name="" id="vd_txt_phone" placeholder="" value="" type="text">
                   </div>
                   <div data-role="fieldcontain" data-controltype="textinput">
-                      <label for="textinput18">
+                      <label for="vd_txt_religion">
                           Religion Pref.
                       </label>
-                      <input name="" id="textinput18" placeholder="" value="" type="search">
+                      <input name="" id="vd_txt_religion" placeholder="" value="" type="search">
                   </div>
                   <div data-role="fieldcontain" data-controltype="textinput">
-                      <label for="textinput19">
+                      <label for="vd_txt_allergy">
                           Allergy
                       </label>
-                      <input name="" id="textinput19" placeholder="" value="" type="search">
+                      <input name="" id="vd_txt_allergy" placeholder="" value="" type="search">
                   </div>
               </div>
           </div>
@@ -301,17 +299,19 @@
                   </a>
               </li>
               <li>
-                  <a href="#page3" data-transition="slide" data-theme="" data-icon="home">
+                  <a href="#home" data-transition="slide" data-theme="" data-icon="home">
                       Home
                   </a>
               </li>
               <li>
-                  <a href="#page1" data-transition="slide" data-theme="" data-icon="alert">
+                  <a href="#auth" data-transition="slide" data-theme="" data-icon="alert">
                       Logout
                   </a>
               </li>
           </ul>
       </div>
   </div>
+  
+  
 </body>
 </html>
