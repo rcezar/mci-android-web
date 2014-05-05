@@ -1,13 +1,10 @@
 
 
-var login_info = {
-	logged : false,    
-	username : null,
-	auth_token : null,
-	first_name : null,
-	last_name : null,
-	email : null
+login_info = {
+	auth_token : ""
 };
+
+
 
 
 $(document).on('pageinit', '#auth', function() {
@@ -27,13 +24,19 @@ $(document).on('pageinit', '#auth', function() {
 		    beforeSend: function(xhr){
 		        xhr.setRequestHeader("Authorization", login_info.auth_token);
 		    },
-		    success: function(result) {
-		        login_info.first_name = result.first_name;
-		        login_info.last_name = result.last_name;
-		        login_info.email = result.email;
-		        login_info.logged = true;
+		    success: function(result) {		        
+		        document.login_info = {
+		        		logged : true,    
+		        		username : result.user_info.username,
+		        		auth_token : login_info.auth_token,
+		        		first_name : result.user_info.first_name,
+		        		last_name : result.user_info.last_name,
+		        		email : result.user_info.email,
+		        		userid : parseInt(result.user_info.id)   		
+		        }
 		        //alert(JSON.stringify(result));
-		        document.login_info = login_info;
+		        //document.login_info = login_info;
+		        console.log(document.login_info);
 		    },
 		    error: function (result) {
 		    	info = null
@@ -49,7 +52,7 @@ $(document).on('pageinit', '#auth', function() {
 		
 
 
-		if (login_info.logged) {
+		if (document.login_info.logged) {
 			$.mobile.changePage("#home", {
 				transition : "slide",
 				changeHash : false

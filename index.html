@@ -168,6 +168,7 @@
                   </h2>
                   <h4>
                       Identification (1)
+                      Tag ID <span id="vd_span_tagid"></span>
                   </h4>
               </div>
               <div class="ui-block-b">
@@ -198,18 +199,18 @@
                       </label>
                       <input name="" id="vd_txt_age" placeholder="" value="" type="text">
                   </div>
-                  <div data-role="fieldcontain" data-controltype="selectmenu">
-                      <label for="vd_menu_gender">
+                  <div data-role="main" class="ui-content">
+                      <label for="vd_menu_gender" class="select">
                           Gender
                       </label>
-                      <select id="vd_menu_gender" data-native-menu="false" name="" data-mini="true">
-                          <option value="male">
+                      <select id="vd_menu_gender" name="" >
+                          <option value="1">
                               Male
                           </option>
-                          <option value="famale">
+                          <option value="2">
                               Female
                           </option>
-                          <option value="other">
+                          <option value="3">
                               Other
                           </option>
                       </select>
@@ -288,8 +289,16 @@
                   </div>
               </div>
           </div>
+          <a id="vd_btn_cancel" href="#victim_locator" data-role="button" data-transition="slide" data-icon="delete" data-iconpos="right">
+              Cancel
+          </a>
+          <a id="vd_btn_save"  data-role="button"  data-icon="arrow-u" data-iconpos="right">
+              Save
+          </a>      
+          <!--    
           <input type="submit" data-icon="delete" data-iconpos="right" value="Cancel">
           <input type="submit" data-icon="arrow-u" data-iconpos="right" value="Save">
+          -->
       </div>
       <div data-role="tabbar" data-iconpos="right" data-theme="a">
           <ul>

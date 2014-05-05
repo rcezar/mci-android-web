@@ -1,3 +1,8 @@
+document.incident = {
+	id: null,
+	name: null
+};
+
 $(document).on('pagebeforeshow', '#home', function() {
 		$('#home_lv_incidents').empty();	
 		$.ajax({
@@ -40,7 +45,7 @@ $(document).on('pagebeforeshow', '#home', function() {
 
 $(document).on('vclick', '#home_lv_incidents li a', function() {
 	document.incident = {
-			id: $(this).attr('data-id'),
+			id: parseInt($(this).attr('data-id')),
 			name: $(this).text()
 	};
 	//alert(JSON.stringify(document.incident));
