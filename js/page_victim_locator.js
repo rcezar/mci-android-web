@@ -39,9 +39,9 @@ $(document).on('pagebeforeshow', '#victim_locator', function() {
 		* 
 		 */
 		
-});
+});		
 
-function search_tag_id(tag_id) {
+function search_tag_id(tag_id) {		
 	 var result = $.ajax({
 		    url: 'http://mci.stribog.com.br/api/incidents/'+document.incident.id+'/victims/?tag_id=' + tag_id ,
 		    type: 'GET',
@@ -53,9 +53,9 @@ function search_tag_id(tag_id) {
 		        xhr.setRequestHeader("Authorization", document.login_info.auth_token);
 		    },
 		    error: function (result) {
-		    	info = null
+		    	info = null;
 		    	if (result.responseText == undefined) {
-		    		info = result.statusText
+		    		info = result.statusText;
 		    	} else {
 		    		parsedData = JSON.parse(result.responseText);
 		    		info = parsedData.info;
@@ -68,7 +68,7 @@ function search_tag_id(tag_id) {
 	 if (data.length > 0) 
 		 return data[0];
 	 
-	 return null
+	 return null;
 }
 
 $(document).on('pageinit', '#victim_locator', function() {
@@ -77,18 +77,20 @@ $(document).on('pageinit', '#victim_locator', function() {
 		tag_id : null
 	};
 	
-	$( "#vl_searchinput" ).cleaned = false;
+	$( "#vl_searchinput" ).context.cleaned = false;
 	
 	$( "#vl_searchinput" ).focus(function() {
-		if (!this.cleaned){
-			this.value = '';
-			this.cleaned=true;
+		if (!($( "#vl_searchinput" ).context.cleaned)){
+			$(this).val('');
+			$(this).mask('99999');
+			$( "#vl_searchinput" ).context.cleaned=true;
 		}
 	});
 	
 	$("#vl_btn_go").bind("click", function(event) {
 		console.log("chamou");
 		document.victim.tag_id = $("#vl_searchinput").val();
+		
 		
 		victim = search_tag_id(document.victim.tag_id);
 		

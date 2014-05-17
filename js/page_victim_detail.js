@@ -1,4 +1,11 @@
+$(document).on('pagebeforehide', '#victim_detail', function(){
+	
+	document.victim = {
+		tag_id : null
+	};
+	console.log('victim = null');
 
+});
 
 $(document).on('pageinit', '#victim_detail', function() {
 	console.log("#victim_detail.pageinit");
@@ -38,7 +45,7 @@ $(document).on('pageinit', '#victim_detail', function() {
 						religion : $("#vd_txt_religion").val(),
 						comments : ""
 					}
-			}
+			};
 		} else {
 			method = "PUT";
 			api_url = 'http://mci.stribog.com.br/api/victims/' + document.victim.id + '/';
@@ -58,7 +65,7 @@ $(document).on('pageinit', '#victim_detail', function() {
 						religion : $("#vd_txt_religion").val(),
 						comments : ""
 					}
-			}			
+			};			
 		}
 		
 		$.ajax({
