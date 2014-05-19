@@ -29,9 +29,9 @@ $(document).on('pagebeforeshow', '#home', function() {
 		        $('#home_lv_incidents').listview('refresh');
 		    },
 		    error: function (result) {
-		    	info = null
+		    	info = null;
 		    	if (result.responseText == undefined) {
-		    		info = result.statusText
+		    		info = result.statusText;
 		    	} else {
 		    		parsedData = JSON.parse(result.responseText);
 		    		info = parsedData.info;

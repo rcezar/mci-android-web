@@ -2,6 +2,10 @@
 $(document).on('pagebeforeshow', '#victim_locator', function() {
 		$('#vl_title').empty();
 		$('#vl_title').append(document.incident.name);
+		document.victim = {
+			tag_id : null
+		};
+		console.log('victim = null');
 		
 		
 		/* will be used to autocomplete field
@@ -71,6 +75,35 @@ function search_tag_id(tag_id) {
 	 return null;
 }
 
+
+function retrieve_victim_trauma(victim_id) {		
+	 var result = $.ajax({
+		    url: 'http://mci.stribog.com.br/api/victims/'+victim_id+'/traumas/',
+		    type: 'GET',
+		    dataType: 'json',
+		    crossDomain: true,
+		    async : false,
+		    cache : false,
+		    beforeSend: function(xhr){
+		        xhr.setRequestHeader("Authorization", document.login_info.auth_token);
+		    },
+		    error: function (result) {
+		    	info = null;
+		    	if (result.responseText == undefined) {
+		    		info = result.statusText;
+		    	} else {
+		    		parsedData = JSON.parse(result.responseText);
+		    		info = parsedData.info;
+		    	}
+		    	alert('error: ' + info);
+		    } 
+		}).responseText;
+	 data = JSON.parse(result);
+	 console.log("traumas: "+JSON.stringify(data));
+	 return data;
+}
+
+
 $(document).on('pageinit', '#victim_locator', function() {
 	
 	document.victim = {
@@ -100,6 +133,7 @@ $(document).on('pageinit', '#victim_locator', function() {
 		} else {
 			console.log("victim found for tag_id " + document.victim.tag_id + ", opening next page for edition ");
 			document.victim = victim;
+			document.victim.traumas = retrieve_victim_trauma(victim.id);
 		}
 		
 		

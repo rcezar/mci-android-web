@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>MCI app</title>
+
+		<link rel="stylesheet" href="css/jquery.mobile-1.4.2.min.css">
+		<!-- <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css"> -->
+		<link rel="stylesheet" href="css/theme.css">
+
+		<link rel="stylesheet" href="css/jquery.mobile.structure-1.4.2.min.css">
+
+		<!-- Extra Codiqa features -->
+		<link rel="stylesheet" href="css/codiqa.ext.css">
+		<style type="text/css">
+			.popupHeader {
+				margin: 10px;
+			}
+		</style>
+
+		<!-- <link rel="stylesheet" href="https://codiqa.com/view/dbce325c/css"> -->
+
+		<!-- jQuery and jQuery Mobile -->
+		<script src="js/jquery-2.1.1.min.js"></script>
+		<script src="js/jquery.mobile-1.4.2.min.js"></script>
+		<script src="js/jquery.mask.min.js"></script>
+		<!-- <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script> -->
+		<!-- <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script> -->
+
+		<!-- Extra Codiqa features -->
+		<script src="js/codiqa.ext.js"></script>
+
+		<script src="js/utils.js"></script>
+
+		<script src="js/page_login.js"></script>
+		<script src="js/page_home.js"></script>
+		<script src="js/page_victim_locator.js"></script>
+		<script src="js/page_victim_detail.js"></script>
+
+	</head>
+	<body>
+		<div data-role="page" data-control-title="Auth" id="auth">
+			<div data-role="content">
+				<div style="" data-controltype="image">
+					<img style="width: 100%; height: px" src="img/logo_long.jpg">
+				</div>
+				<h2> Welcome </h2>
+				<h5> Please, sign in below </h5>
+				<div data-role="fieldcontain" data-controltype="textinput">
+					<label for="textinput3"> User </label>
+					<input name="" id="auth_txt_user" placeholder="" value="" type="text">
+				</div>
+				<div data-role="fieldcontain" data-controltype="textinput">
+					<label for="textinput4"> Password </label>
+					<input name="" id="auth_txt_password" placeholder="" value="" type="password">
+				</div>
+				<a id="auth_btn_signin" data-role="button"  data-icon="check" data-iconpos="right"> Sign in </a>
+			</div>
+			<div data-theme="a" data-role="footer" data-position="fixed">
+				<div style="" data-controltype="image">
+					<img style="width: 100%; height: 50px" src="img/logo_footer.jpg">
+				</div>
+			</div>
+		</div>
+		<div data-role="page" data-control-title="Home" id="home">
+			<div data-role="content">
+				<div style="" data-controltype="image">
+					<img style="width: 100%; height: %" src="img/logo_short.jpg">
+				</div>
+				<h2> Incidents </h2>
+				<ul data-role="listview" data-divider-theme="b" data-inset="true" id="home_lv_incidents">
+
+				</ul>
+			</div>
+			<div data-role="tabbar" data-iconpos="right" data-theme="a">
+				<ul>
+					<li>
+						<a href="#" data-transition="slide" data-theme="" data-icon="back"> Back </a>
+					</li>
+					<li>
+						<a href="#home" data-transition="slide" data-theme="" data-icon="home"> Home </a>
+					</li>
+					<li>
+						<a href="#auth" data-transition="slide" data-theme="" data-icon="alert"> Logout </a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div data-role="page" data-control-title="Victim locator" id="victim_locator">
+			<div data-role="content">
+				<div style="" data-controltype="image">
+					<img style="width: 100%; height: %" src="img/logo_short.jpg">
+				</div>
+				<h2>Victim locator</h2>
+				<h5> Use the field below to locate a victim at <span id='vl_title' class='color:red'></span> incident. </h5>
+
+				<div data-role="fieldcontain" data-controltype="searchinput">
+					<label for="textinput3"> Tag Id </label>
+					<input name="" id="vl_searchinput" placeholder="" value="Tag id" type="search">
+				</div>
+				<div data-role="navbar" data-iconpos="top">
+					<ul>
+						<li>
+							<a href="#victim_locator" data-transition="slide" data-theme="" data-icon="bars"> Barcode Scanner </a>
+						</li>
+						<li>
+							<a id="vl_btn_go" data-transition="slide" data-theme="" data-icon="arrow-r"> Go </a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div data-role="tabbar" data-iconpos="right" data-theme="a">
+				<ul>
+					<li>
+						<a href="#" data-transition="slide" data-theme="" data-icon="back"> Back </a>
+					</li>
+					<li>
+						<a href="#home" data-transition="slide" data-theme="" data-icon="home"> Home </a>
+					</li>
+					<li>
+						<a href="#auth" data-transition="slide" data-theme="" data-icon="alert"> Logout </a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div data-role="page" data-control-title="Victim detail" id="victim_detail">
+			<div data-role="content">
+				<div style="" data-controltype="image">
+					<img style="width: 100%; height: %" src="img/logo_short.jpg">
+				</div>
+				<div class="ui-grid-a">
+					<div class="ui-block-a">
+						<h2> Victim details </h2>
+						<h4> Identification (1)
+						Tag ID <span id="vd_span_tagid"></span></h4>
+					</div>
+					<div class="ui-block-b">
+						<div id="vd_div_3t" data-role="fieldcontain" data-controltype="checkboxes">
+							<fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+								<input id="vd_cb_triage" name="check-triage" type="checkbox">
+								<label for="vd_cb_triage"> Triage </label>
+								<input id="vd_cb_treatment" name="check-treatment" type="checkbox">
+								<label for="vd_cb_treatment"> Treatment </label>
+								<input id="vd_cb_transport" name="check-transport" type="checkbox">
+								<label for="vd_cb_transport"> Transport </label>
+							</fieldset>
+						</div>
+					</div>
+				</div>
+				<!--	tab command   -->
+				<div data-role="tabs" id="tabs">
+					<div data-role="navbar">
+						<ul>
+							<li>
+								<a href="#one" data-ajax="false">one</a>
+							</li>
+							<li>
+								<a href="#two" data-ajax="false">two</a>
+							</li>
+							<li>
+								<a href="ajax-content.html" data-ajax="false">three</a>
+							</li>
+						</ul>
+					</div>
+					<div id="one" class="ui-body-d ui-content">
+						<h1>First tab contents</h1>
+					</div>
+					<div id="two">
+						<ul data-role="listview" data-inset="true">
+							<li>
+								<a href="#">Acura</a>
+							</li>
+							<li>
+								<a href="#">Audi</a>
+							</li>
+							<li>
+								<a href="#">BMW</a>
+							</li>
+							<li>
+								<a href="#">Cadillac</a>
+							</li>
+							<li>
+								<a href="#">Ferrari</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!--end tab_command -->
+
+				<hr style="height:3px; background-color:#ccc; border:0; margin-top:12px; margin-bottom:12px;">
+				<div class="ui-grid-a">
+					<div class="ui-block-a">
+						<div data-role="fieldcontain" data-controltype="textinput">
+							<label for="vd_txt_age"> Age </label>
+							<input name="" id="vd_txt_age" placeholder="" value="" type="text">
+						</div>
+						<div data-role="main" class="ui-content">
+							<label for="vd_menu_gender" class="select"> Gender </label>
+							<select id="vd_menu_gender" name="" >
+								<option value="1"> Male </option>
+								<option value="2"> Female </option>
+								<option value="3"> Other </option>
+							</select>
+						</div>
+						<div data-role="fieldcontain" data-controltype="textinput">
+							<label for="vd_txt_height"> Height </label>
+							<input name="" id="vd_txt_height" placeholder="" value="cm" type="text">
+						</div>
+						<div data-role="fieldcontain" data-controltype="textinput">
+							<label for="vd_txt_weight"> Weight </label>
+							<input name="" id="vd_txt_weight" placeholder="" value="kg" type="text">
+						</div>
+					</div>
+					<div class="ui-block-b">
+						<div style="width: 288px; height: 200px; position: relative; background-color: #fbfbfb; border: 1px solid #b8b8b8;"
+						data-controltype="image">
+							<img src="images/" alt="image" style="position: absolute; top: 50%; left: 50%; margin-left: -16px; margin-top: -18px">
+						</div>
+					</div>
+					<div class="ui-block-a"></div>
+					<div class="ui-block-b">
+						<div data-role="navbar" data-iconpos="top">
+							<ul>
+								<li>
+									<a href="#victim_detail" data-transition="slide" data-theme="" data-icon="arrow-l"> Prev </a>
+								</li>
+								<li>
+									<a href="#victim_detail" data-transition="slide" data-theme="" data-icon="plus"> Add </a>
+								</li>
+								<li>
+									<a href="#victim_detail" data-transition="slide" data-theme="" data-icon="arrow-r"> Next </a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div data-role="collapsible-set">
+					<div data-role="collapsible" data-collapsed="false">
+						<h3> Additional info </h3>
+						<div data-role="fieldcontain" data-controltype="textinput">
+							<label for="vd_txt_name"> Name </label>
+							<input name="" id="vd_txt_name" placeholder="" value="" type="text">
+						</div>
+						<div data-role="fieldcontain" data-controltype="textinput">
+							<label for="vd_txt_phone"> Phone Number </label>
+							<input name="" id="vd_txt_phone" placeholder="" value="" type="text">
+						</div>
+						<div data-role="fieldcontain" data-controltype="textinput">
+							<label for="vd_txt_religion"> Religion Pref. </label>
+							<input name="" id="vd_txt_religion" placeholder="" value="" type="search">
+						</div>
+						<div data-role="fieldcontain" data-controltype="textinput">
+							<label for="vd_txt_allergy"> Allergy </label>
+							<input name="" id="vd_txt_allergy" placeholder="" value="" type="search">
+						</div>
+					</div>
+				</div>
+				<a id="vd_btn_cancel" href="#victim_locator" data-role="button" data-transition="slide" data-icon="delete" data-iconpos="right"> Cancel </a>
+				<a id="vd_btn_save"  data-role="button"  data-icon="arrow-u" data-iconpos="right"> Save </a>
+				<!--
+				<input type="submit" data-icon="delete" data-iconpos="right" value="Cancel">
+				<input type="submit" data-icon="arrow-u" data-iconpos="right" value="Save">
+				-->
+			</div>
+			<div data-role="tabbar" data-iconpos="right" data-theme="a">
+				<ul>
+					<li>
+						<a href="#" data-transition="slide" data-theme="" data-icon="back"> Back </a>
+					</li>
+					<li>
+						<a href="#home" data-transition="slide" data-theme="" data-icon="home"> Home </a>
+					</li>
+					<li>
+						<a href="#auth" data-transition="slide" data-theme="" data-icon="alert"> Logout </a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+	</body>
+</html>
