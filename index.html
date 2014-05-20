@@ -132,7 +132,7 @@
 			<div data-role="panel" id="vd_panel">
 				<ul data-role="listview" data-inset="true">
 					<li data-icon="info">
-						<a href="#victim_detail" data-ajax="false">ID</a>
+						<a href="#victim_detail" data-ajax="false" data-transition="slide"><img src="img/id.png"/>ID</a>
 					</li>
 					<li>
 						<a href="#victim_detail_trauma" data-ajax="false"> <img src="http://www.hollard.co.zm/static/images/icon_personalaccident.png"/>Trauma</a>
@@ -267,7 +267,7 @@
 			<div data-role="panel" id="vd_trauma_panel">
 				<ul data-role="listview" data-inset="true">
 					<li data-icon="info">
-						<a href="#victim_detail" data-ajax="false" data-transition="slide" >ID</a>
+						<a href="#victim_detail" data-ajax="false" data-transition="slide"><img src="img/id.png"/>ID</a>
 					</li>
 					<li>
 						<a href="#victim_detail_trauma" data-ajax="false" data-transition="slide" > <img src="http://www.hollard.co.zm/static/images/icon_personalaccident.png"/>Trauma</a>
@@ -309,7 +309,7 @@
 					<div data-role="navbar">
 						<ul>
 							<li>
-								<a href="#vd_trauma_manual">Manual</a>
+								<a href="#vd_trauma_manual" class="ui-btn-active">Manual</a>
 							</li>
 							<li>
 								<a href="#vd_trauma_visual">Visual</a>
@@ -340,12 +340,12 @@
 							<label for="vd_trauma_comments_textarea">Comments:</label>
 							<textarea cols="30" rows="3" id="vd_trauma_comments_textarea" data-mini="true"></textarea>
 
-							<a href="#" data-rel="back" class="ui-shadow ui-btn ui-corner-all ui-btn-b ui-icon-check ui-btn-icon-left ui-btn-inline ui-mini">Save</a>
+							<a href="#" data-rel="back" id="vd_trauma_select_save_btn" data-id="" class="ui-shadow ui-btn ui-corner-all ui-btn-b ui-icon-check ui-btn-icon-left ui-btn-inline ui-mini">Save</a>
 							<a href="#" data-rel="back" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-mini">Cancel</a>
-							<a href="#" data-rel="back" class="ui-shadow ui-btn ui-corner-all ui-btn-b ui-icon-delete ui-btn-icon-left ui-btn-inline ui-mini">Delete</a>
+							<a href="#" data-rel="back" id="vd_trauma_select_delete_btn" class="ui-shadow ui-btn ui-corner-all ui-btn-b ui-icon-delete ui-btn-icon-left ui-btn-inline ui-mini">Delete</a>
 						</div>
 
-						<a id="vdtrauma_btn_addtrauma" href="#" data-role="button" data-icon="plus" data-iconpos="right">Add</a>
+						<a href="#vd_trauma_li_edit" id="vdtrauma_btn_addtrauma" data-rel="popup" data-position-to="window" data-transition="pop" data-role="button" data-icon="plus" data-iconpos="right">Add</a>
 
 					</div>
 				</div>
