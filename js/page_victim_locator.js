@@ -129,9 +129,9 @@ $(document).on('pageinit', '#victim_locator', function() {
 		
 		// TODO: present dialog boxes
 		if (victim == null) {
-			console.log("victim does not exist, next page will add a new one with tag id " + document.victim.tag_id);
+			alert("Victim does not exist, next page will add a new one with tag id " + document.victim.tag_id);
+			document.victim.traumas = new Array();
 		} else {
-			console.log("victim found for tag_id " + document.victim.tag_id + ", opening next page for edition ");
 			document.victim = victim;
 			document.victim.traumas = retrieve_victim_trauma(victim.id);
 		}
