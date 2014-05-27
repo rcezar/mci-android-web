@@ -138,7 +138,7 @@
 						<a href="#victim_detail_trauma" data-ajax="false"> <img src="http://www.hollard.co.zm/static/images/icon_personalaccident.png"/>Trauma</a>
 					</li>
 					<li>
-						<a href="#victim_detail_vital_sign" data-ajax="false">Vital Signs</a>
+						<a href="#victim_detail_vital_sign" data-ajax="false"><img src="http://www.peterborough.ca/Assets/City+Assets/Social+Services/Images/Pulse+Icon.jpg"/>Vital Signs</a>
 					</li>
 					<li>
 						<a href="#victim_detail_alergy" data-ajax="false">Alergy</a>
@@ -273,7 +273,7 @@
 						<a href="#victim_detail_trauma" data-ajax="false" data-transition="slide" > <img src="http://www.hollard.co.zm/static/images/icon_personalaccident.png"/>Trauma</a>
 					</li>
 					<li>
-						<a href="#victim_detail_vital_sign" data-ajax="false">Vital Signs</a>
+						<a href="#victim_detail_vital_sign" data-ajax="false"><img src="http://www.peterborough.ca/Assets/City+Assets/Social+Services/Images/Pulse+Icon.jpg"/>Vital Signs</a>
 					</li>
 					<li>
 						<a href="#victim_detail_alergy" data-ajax="false">Alergy</a>
@@ -350,6 +350,159 @@
 					</div>
 				</div>
 
+			</div>
+
+			<!-- Page Footer -->
+			<div data-role="footer">
+				<div data-role="tabbar" data-iconpos="right" data-theme="a">
+					<ul>
+						<li>
+							<a href="#" data-transition="slide" data-theme="" data-icon="back"> Back </a>
+						</li>
+						<li>
+							<a href="#home" data-transition="slide" data-theme="" data-icon="home"> Home </a>
+						</li>
+						<li>
+							<a href="#auth" data-transition="slide" data-theme="" data-icon="alert"> Logout </a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+<!-- page Victim detail Vital Sign -->
+		<div data-role="page" data-control-title="Victim detail_vital sign" id="victim_detail_vital_sign">
+			<div data-role="header">
+				<div style="" data-controltype="image">
+					<img style="width: 100%; height: %" src="img/logo_short.jpg">
+				</div>
+			</div>
+
+			<!-- panel of victims form -->
+			<div data-role="panel" id="vd_vitalsign_panel">
+				<!-- Menu -->
+				<ul data-role="listview" data-inset="true">
+					<li data-icon="info">
+						<a href="#victim_detail" data-ajax="false" data-transition="slide"><img src="img/id.png"/>ID</a>
+					</li>
+					<li>
+						<a href="#victim_detail_trauma" data-ajax="false" data-transition="slide" > <img src="http://www.hollard.co.zm/static/images/icon_personalaccident.png"/>Trauma</a>
+					</li>
+					<li>
+						<a href="#victim_detail_vital_sign" data-ajax="false"><img src="http://www.peterborough.ca/Assets/City+Assets/Social+Services/Images/Pulse+Icon.jpg"/>Vital Signs</a>
+					</li>
+					<li>
+						<a href="#victim_detail_alergy" data-ajax="false">Alergy</a>
+					</li>
+					<li>
+						<a href="#victim_detail_procedure" data-ajax="false">Procedure</a>
+					</li>
+					<li>
+						<a href="#victim_detail_drug" data-ajax="false">Drugs</a>
+					</li>
+					<li>
+						<a href="#victim_detail_triage" data-ajax="false">Triage</a>
+					</li>
+				</ul>
+			</div>
+
+			<div data-role="content" class="ui-content">
+				<div class="ui-grid-a">
+					<div class="ui-block-a">
+						<h2> Victim details </h2>
+						<h4> Vital Signs (3)
+						<br />
+						Tag ID <span id="vd_vitalsign_span_tagid"></span></h4>
+					</div>
+					<div class="ui-block-b">
+						<a id="vd_vitalsign_btn_panel" href="#vd_vitalsign_panel" data-role="button" data-icon="delete" data-iconpos="right">My panel </a>
+					</div>
+				</div>
+
+				<hr style="height:3px; background-color:#ccc; border:0; margin-top:5px; margin-bottom:5px;">
+
+				<div data-role="tabs">
+					<div data-role="navbar">
+						<ul>
+							<li>
+								<a href="#vd_vitalsign_current" class="ui-btn-active">Current</a>
+							</li>
+							<li>
+								<a href="#vd_vitalsign_history">History</a>
+							</li>
+							<li>
+								<a href="#vd_vitalsign_graph">Graph</a>
+							</li>
+						</ul>
+					</div>
+					<div id="vd_vitalsign_current">
+						<p>
+							Current
+						</p>
+						<div data-role="popup" id="vd_vitalsign_add_form" data-theme="a" data-overlay-theme="a" class="ui-content" style="padding-bottom:2em; width: 200px">
+							<fieldset data-role="controlgroup" data-type="horizontal">
+							    <legend>Pulse</legend>
+							    <label for="vd_vitalsign_pulse_add">Set Pulse</label>
+							    <input type="number" name="vd_vitalsign_pulse_add" id="vd_vitalsign_pulse_add">							    
+							</fieldset>
+							
+							<fieldset data-role="controlgroup" data-type="horizontal">
+							    <legend>Respiration</legend>
+							    <label for="vd_vitalsign_respiration_add">Set Respiration</label>
+							    <input type="number" name="vd_vitalsign_respiration_add" id="vd_vitalsign_respiration_add">							    
+							</fieldset>
+							
+							<fieldset data-role="controlgroup" data-type="horizontal">
+							    <legend>Blood Pressure</legend>
+							    <label for="vd_vitalsign_bp_add">Set Blood Pressure</label>
+							    <input type="number" name="vd_vitalsign_bp_add" id="vd_vitalsign_bp_add">							    
+							</fieldset>
+
+							<a href="#" data-rel="back" id="vd_vitalsign_add_form_save_btn" data-id="" class="ui-shadow ui-btn ui-corner-all ui-btn-b ui-icon-check ui-btn-icon-left ui-btn-inline ui-mini">Save</a>
+							<a href="#" data-rel="back" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-mini">Cancel</a>
+						</div>
+						<a href="#vd_vitalsign_add_form" id="vd_vitalsign_btn_addtrauma" data-rel="popup" data-position-to="window" data-transition="pop" data-role="button" data-icon="plus" data-iconpos="right">Add</a>
+					</div>
+					<div id="vd_vitalsign_history">
+						<p>
+							History
+						</p>
+						<table data-role="table" id="vd_vitalsign_history_table" class="ui-responsive table-stroke">
+							<!-- ui-body-d ui-shadow table-stripe -->
+							<thead>
+								<tr>
+									<th>Time</th>
+									<th>B/P</th>
+									<th>Pulse</th>
+									<th>Respiration</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th>12:00</th>
+									<td>12/10</td>
+									<td>87 bpm</td>
+									<td>120</td>
+								</tr>
+								<tr>
+									<th>12:00</th>
+									<td>12/10</td>
+									<td>87 bpm</td>
+									<td>120</td>
+								</tr>
+								<tr>
+									<th>12:00</th>
+									<td>12/10</td>
+									<td>87 bpm</td>
+									<td>120</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div id="vd_vitalsign_graph">
+						<p>Graph</p>
+					</div>
+				</div>
 			</div>
 
 			<!-- Page Footer -->

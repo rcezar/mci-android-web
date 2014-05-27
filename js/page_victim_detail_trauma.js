@@ -52,6 +52,8 @@ $(document).on('vclick', '#vd_trauma_select_save_btn', function() {
 	var bodypart = $("#vd_trauma_bodypart_select").val();
 	var description = $("#vd_trauma_comments_textarea").val();
 	var j = $("#vd_trauma_li_edit").attr("selected_trauma");
+	var method = "PUT";
+	var api_url = "http://mci.stribog.com.br/api/traumas/";
 
 	if (j == document.victim.traumas.length) {
 		document.victim.traumas.push({
@@ -60,7 +62,7 @@ $(document).on('vclick', '#vd_trauma_select_save_btn', function() {
 			ai_type : "",
 			ai_bodypart : ""
 		});
-
+		method = "PUSH";
 	}
 
 	if (trauma_type != document.victim.traumas[j].trauma_type) {
@@ -73,7 +75,34 @@ $(document).on('vclick', '#vd_trauma_select_save_btn', function() {
 		document.victim.traumas[j].description = description;
 	};
 	refreshTraumaListview();
+
+	//verify if there's a victim on server side, if not, we create one with tag_id provided
+	if (document.victim.id == undefined) {
+		xapi_url = 'http://mci.stribog.com.br/api/incidents/' + document.incident.id + '/victims/';
+		victim = {
+			tag_id : document.victim.tag_id,
+			creation_time : (new Date()).toISOString(),
+			creation_agent : document.login_info.userid,
+			incident : document.incident.id,
+			personal_data : {},
+		};
+		result = updateServer(xapi_url, "POST", victim);
+		result.traumas = document.victim.traumas;
+		document.victim = result;
+	}
+	
+	document.victim.traumas[j].victim = document.victim.id;
+
+	if (document.victim.traumas[j].id != undefined){
+		api_url+=document.victim.traumas[j].id+"/";
+	}
+	result = document.updateServer(api_url, method, document.victim.traumas[j]);
+	if (result != null){
+		document.victim.traumas[j].id = result.id;
+	}
 });
+
+
 
 //Btn ADD Trauma
 $(document).on('vclick', '#vdtrauma_btn_addtrauma', function() {
