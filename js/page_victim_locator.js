@@ -131,9 +131,11 @@ $(document).on('pageinit', '#victim_locator', function() {
 		if (victim == null) {
 			alert("Victim does not exist, next page will add a new one with tag id " + document.victim.tag_id);
 			document.victim.traumas = new Array();
+			document.victim.vitalsigns = new Array();
 		} else {
 			document.victim = victim;
 			document.victim.traumas = retrieve_victim_trauma(victim.id);
+			document.victim.vitalsigns = new Array();
 		}
 		
 		

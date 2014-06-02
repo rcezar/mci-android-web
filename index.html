@@ -40,6 +40,7 @@
 		<script src="js/page_victim_locator.js"></script>
 		<script src="js/page_victim_detail.js"></script>
 		<script src="js/page_victim_detail_trauma.js"></script>
+		<script src="js/page_victim_detail_vital_sign.js"></script>
 
 	</head>
 	<body>
@@ -254,9 +255,7 @@
 				</ul>
 			</div>
 		</div>
-
-		<!-- page Victim detail trauma -->
-		<div data-role="page" data-control-title="Victim detail_trauma" id="victim_detail_trauma">
+		<div data-role="page" data-control-title="Victim detail Trauma" id="victim_detail_trauma">
 			<div data-role="header">
 				<div style="" data-controltype="image">
 					<img style="width: 100%; height: %" src="img/logo_short.jpg">
@@ -369,9 +368,9 @@
 				</div>
 			</div>
 		</div>
-
-<!-- page Victim detail Vital Sign -->
-		<div data-role="page" data-control-title="Victim detail_vital sign" id="victim_detail_vital_sign">
+		
+		<!-- page Victim detail Vital Sign -->
+		<div data-role="page" data-control-title="Victim detail Vital Sign" id="victim_detail_vital_sign">
 			<div data-role="header">
 				<div style="" data-controltype="image">
 					<img style="width: 100%; height: %" src="img/logo_short.jpg">
@@ -437,7 +436,7 @@
 					</div>
 					<div id="vd_vitalsign_current">
 						<p>
-							Current
+							Current State
 						</p>
 						<div data-role="popup" id="vd_vitalsign_add_form" data-theme="a" data-overlay-theme="a" class="ui-content" style="padding-bottom:2em; width: 200px">
 							<fieldset data-role="controlgroup" data-type="horizontal">
@@ -455,19 +454,38 @@
 							<fieldset data-role="controlgroup" data-type="horizontal">
 							    <legend>Blood Pressure</legend>
 							    <label for="vd_vitalsign_bp_add">Set Blood Pressure</label>
-							    <input type="number" name="vd_vitalsign_bp_add" id="vd_vitalsign_bp_add">							    
+							    <input type="text" name="vd_vitalsign_bp_add" id="vd_vitalsign_bp_add">							    
 							</fieldset>
 
 							<a href="#" data-rel="back" id="vd_vitalsign_add_form_save_btn" data-id="" class="ui-shadow ui-btn ui-corner-all ui-btn-b ui-icon-check ui-btn-icon-left ui-btn-inline ui-mini">Save</a>
 							<a href="#" data-rel="back" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-mini">Cancel</a>
 						</div>
+						<div id="vd_vital_sign_current_content" class="ui-grid-b">
+							<div class="ui-block-a">
+								<strong>Pulse</strong><br />
+								<img style="height: 40px" src="img/pulse.png"/><br />
+								<span id="vd_vital_sign_current_content_pulse">None</span> bpm
+							</div>
+							<div class="ui-block-b">
+								<strong>Respiration</strong><br />
+								<img style="height: 40px" src="img/respiration_2.png"/><br />
+								<span id="vd_vital_sign_current_content_respiration">None</span> irpm
+							</div>
+							<div class="ui-block-c">
+								<strong>Blood Pressure</strong><br />
+								<img style="height: 40px" src="img/bloodpressure_3.png"/><br />
+								<span id="vd_vital_sign_current_content_bp">None</span> mmHg 
+							</div>							
+						</div>
+						<p><h6><i>Last update: </i><span id="vd_vital_sign_current_content_time">None</span></h6></p>
+						
 						<a href="#vd_vitalsign_add_form" id="vd_vitalsign_btn_addtrauma" data-rel="popup" data-position-to="window" data-transition="pop" data-role="button" data-icon="plus" data-iconpos="right">Add</a>
 					</div>
 					<div id="vd_vitalsign_history">
 						<p>
 							History
 						</p>
-						<table data-role="table" id="vd_vitalsign_history_table" class="ui-responsive table-stroke">
+						<table data-role="table" id="vd_vitalsign_history_table">
 							<!-- ui-body-d ui-shadow table-stripe -->
 							<thead>
 								<tr>
@@ -477,30 +495,14 @@
 									<th>Respiration</th>
 								</tr>
 							</thead>
-							<tbody>
-								<tr>
-									<th>12:00</th>
-									<td>12/10</td>
-									<td>87 bpm</td>
-									<td>120</td>
-								</tr>
-								<tr>
-									<th>12:00</th>
-									<td>12/10</td>
-									<td>87 bpm</td>
-									<td>120</td>
-								</tr>
-								<tr>
-									<th>12:00</th>
-									<td>12/10</td>
-									<td>87 bpm</td>
-									<td>120</td>
-								</tr>
+							<tbody id="vd_vitalsign_history_table_tbody">
+								
 							</tbody>
 						</table>
 					</div>
 					<div id="vd_vitalsign_graph">
 						<p>Graph</p>
+						<img src="http://www.doereport.com/imagescooked/15505W.jpg" style="width:100%"/>
 					</div>
 				</div>
 			</div>
